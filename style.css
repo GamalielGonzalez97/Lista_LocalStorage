@@ -1,0 +1,165 @@
+:root {
+  --background: #e8f1f5;
+  --surface: #ffffff;
+  --text: #173042;
+  --muted-text: #5d7180;
+  --border: #c8d8e0;
+  --accent: #167d8d;
+  --accent-dark: #0f5e6b;
+  --shadow: 0 18px 45px rgba(23, 48, 66, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #e8f1f5 0%, #f8fbfc 52%, #dcecef 100%);
+}
+
+main {
+  width: min(100%, 560px);
+  padding: 40px;
+  border: 1px solid rgba(200, 216, 224, 0.9);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: #fbfdfe;
+  font: inherit;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: var(--muted-text);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(22, 125, 141, 0.28);
+  outline-offset: 2px;
+}
+
+button {
+  margin-top: 4px;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background: var(--accent);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+#pending-count {
+  margin: 24px 0 0;
+  color: var(--muted-text);
+  font-weight: bold;
+}
+
+#task-list {
+  display: grid;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  background: #f1f7f8;
+  cursor: pointer;
+}
+
+#task-list li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#task-list li button {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+#task-list li.completed {
+  color: var(--muted-text);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 10px;
+    place-items: start center;
+  }
+
+  main {
+    padding: 28px 16px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 2.25rem;
+  }
+
+  button {
+    min-height: 44px;
+  }
+
+  #task-list li {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  #task-list li button {
+    min-height: 44px;
+    padding: 8px 10px;
+  }
+}
