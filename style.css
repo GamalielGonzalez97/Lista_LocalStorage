@@ -27,7 +27,7 @@ body {
 main {
   width: min(100%, 560px);
   padding: 40px;
-  border: 1px solid rgba(200, 216, 224, 0.9);
+  border: 1px solid rgba(62, 175, 232, 0.9);
   border-radius: 12px;
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -81,7 +81,9 @@ button {
   font: inherit;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 160ms ease, transform 160ms ease;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 button:hover {
