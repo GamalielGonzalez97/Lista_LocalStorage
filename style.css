@@ -61,11 +61,24 @@ input {
   font-size: 1rem;
 }
 
+select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: #fbfdfe;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 input::placeholder {
   color: var(--muted-text);
 }
 
 input:focus-visible,
+select:focus-visible,
 button:focus-visible {
   outline: 3px solid rgba(22, 125, 141, 0.28);
   outline-offset: 2px;
@@ -117,9 +130,40 @@ button:hover {
   cursor: pointer;
 }
 
+#task-list li .task-details {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
 #task-list li span {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+#task-list li .priority {
+  width: max-content;
+  min-width: 96px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#task-list li .priority-urgent {
+  color: #8c1d18;
+  background: #ffd9d6;
+}
+
+#task-list li .priority-normal {
+  color: #805b00;
+  background: #ffedb3;
+}
+
+#task-list li .priority-low {
+  color: #17643c;
+  background: #d5f2df;
 }
 
 #task-list li button {
