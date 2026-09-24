@@ -29,7 +29,11 @@
         <button type="submit">Agregar tarea</button>
       </form>
 
-      <p id="pending-count">Tareas pendientes: 0</p>
+      <div id="task-counts" aria-live="polite">
+        <p>Total: <strong id="total-count">0</strong></p>
+        <p>Pendientes: <strong id="pending-count">0</strong></p>
+        <p>Terminadas: <strong id="completed-count">0</strong></p>
+      </div>
       <ul id="task-list"></ul>
     </main>
 

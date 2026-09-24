@@ -3,7 +3,9 @@ const taskInput = document.getElementById("task-input");
 const prioritySelect = document.getElementById("priority-select");
 const dueDateInput = document.getElementById("due-date");
 const taskList = document.getElementById("task-list");
+const totalCount = document.getElementById("total-count");
 const pendingCount = document.getElementById("pending-count");
+const completedCount = document.getElementById("completed-count");
 const storageKey = "mi-lista-tareas";
 const priorityLabels = {
   urgent: "Urgente",
@@ -27,7 +29,10 @@ function updatePendingCount() {
   const pendingTasks = tasks.filter(function (task) {
     return !task.completed;
   }).length;
-  pendingCount.textContent = `Tareas pendientes: ${pendingTasks}`;
+  const completedTasks = tasks.length - pendingTasks;
+  totalCount.textContent = tasks.length;
+  pendingCount.textContent = pendingTasks;
+  completedCount.textContent = completedTasks;
 }
 
 function getTodayDate() {
@@ -94,6 +99,7 @@ function createTaskElement(task, taskIndex) {
   taskItem.addEventListener("click", function () {
     task.completed = !task.completed;
     taskItem.classList.toggle("completed", task.completed);
+    taskItem.classList.toggle("overdue", isOverdue(task));
     saveTasks();
     updatePendingCount();
   });
