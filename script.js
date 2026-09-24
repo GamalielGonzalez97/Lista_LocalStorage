@@ -7,7 +7,7 @@ const storageKey = "mi-lista-tareas";
 const priorityLabels = {
   urgent: "Urgente",
   normal: "Normal",
-  low: "Baja"
+  low: "Baja",
 };
 
 let tasks = JSON.parse(localStorage.getItem(storageKey) || "[]");
@@ -108,7 +108,7 @@ taskForm.addEventListener("submit", function (event) {
   tasks.push({
     text: taskText,
     completed: false,
-    priority: prioritySelect.value
+    priority: prioritySelect.value,
   });
   saveTasks();
   renderTasks();

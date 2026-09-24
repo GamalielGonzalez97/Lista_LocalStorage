@@ -1,36 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi lista de tareas</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main>
-    <h1>Mi lista de tareas</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi lista de tareas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Mi lista de tareas</h1>
 
-    <form id="task-form">
-      <label for="task-input">Nueva tarea</label>
-      <input
-        type="text"
-        id="task-input"
-        placeholder="Escribe una tarea"
-        autocomplete="off"
-      >
-      <label for="priority-select">Prioridad</label>
-      <select id="priority-select">
-        <option value="urgent">Urgente</option>
-        <option value="normal" selected>Normal</option>
-        <option value="low">Baja</option>
-      </select>
-      <button type="submit">Agregar tarea</button>
-    </form>
+      <form id="task-form">
+        <label for="task-input">Nueva tarea</label>
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Escribe una tarea"
+          autocomplete="off"
+        />
+        <label for="priority-select">Prioridad</label>
+        <select id="priority-select">
+          <option value="urgent">Urgente</option>
+          <option value="normal" selected>Normal</option>
+          <option value="low">Baja</option>
+        </select>
+        <button type="submit">Agregar tarea</button>
+      </form>
 
-    <p id="pending-count">Tareas pendientes: 0</p>
-    <ul id="task-list"></ul>
-  </main>
+      <p id="pending-count">Tareas pendientes: 0</p>
+      <ul id="task-list"></ul>
+    </main>
 
-  <script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
