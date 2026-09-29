@@ -1,12 +1,13 @@
 :root {
-  --background: #e8f1f5;
-  --surface: #ffffff;
-  --text: #173042;
-  --muted-text: #5d7180;
-  --border: #c8d8e0;
-  --accent: #167d8d;
-  --accent-dark: #0f5e6b;
-  --shadow: 0 18px 45px rgba(23, 48, 66, 0.14);
+  --background: #fff4e8;
+  --surface: #fffdf9;
+  --text: #29243a;
+  --muted-text: #756b7d;
+  --border: #ead9d0;
+  --accent: #ef5b5b;
+  --accent-dark: #c83f55;
+  --secondary: #159a9c;
+  --shadow: 0 18px 45px rgba(77, 45, 59, 0.16);
 }
 
 * {
@@ -21,13 +22,15 @@ body {
   place-items: center;
   font-family: Georgia, "Times New Roman", serif;
   color: var(--text);
-  background: linear-gradient(135deg, #e8f1f5 0%, #f8fbfc 52%, #dcecef 100%);
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 196, 92, 0.4), transparent 28%),
+    linear-gradient(135deg, #fff0d8 0%, #fffaf2 48%, #d7f1ec 100%);
 }
 
 main {
   width: min(100%, 560px);
   padding: 40px;
-  border: 1px solid rgba(62, 175, 232, 0.9);
+  border: 2px solid rgba(239, 91, 91, 0.25);
   border-radius: 12px;
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -35,6 +38,7 @@ main {
 
 h1 {
   margin: 0 0 28px;
+  color: var(--accent-dark);
   font-size: clamp(2rem, 6vw, 3rem);
   line-height: 1.1;
   letter-spacing: 0;
@@ -80,7 +84,7 @@ input::placeholder {
 input:focus-visible,
 select:focus-visible,
 button:focus-visible {
-  outline: 3px solid rgba(22, 125, 141, 0.28);
+  outline: 3px solid rgba(21, 154, 156, 0.35);
   outline-offset: 2px;
 }
 
@@ -118,7 +122,7 @@ button:hover {
 }
 
 #task-counts strong {
-  color: var(--text);
+  color: var(--secondary);
 }
 
 #task-filters {
@@ -132,7 +136,7 @@ button:hover {
   margin: 0;
   padding: 9px 13px;
   border: 1px solid var(--accent);
-  color: var(--accent-dark);
+  color: var(--secondary);
   background: var(--surface);
   font-size: 0.9rem;
 }
@@ -140,7 +144,7 @@ button:hover {
 #task-filters .filter-button:hover,
 #task-filters .filter-button.active {
   color: #ffffff;
-  background: var(--accent);
+  background: var(--secondary);
 }
 
 #task-list {
@@ -157,9 +161,9 @@ button:hover {
   justify-content: space-between;
   gap: 16px;
   padding: 14px 16px;
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid var(--secondary);
   border-radius: 4px;
-  background: #f1f7f8;
+  background: #effaf7;
   cursor: pointer;
 }
 
@@ -190,18 +194,18 @@ button:hover {
 }
 
 #task-list li .priority-urgent {
-  color: #8c1d18;
-  background: #ffd9d6;
+  color: #a93232;
+  background: #ffd8d5;
 }
 
 #task-list li .priority-normal {
-  color: #805b00;
-  background: #ffedb3;
+  color: #805600;
+  background: #ffe7a8;
 }
 
 #task-list li .priority-low {
-  color: #17643c;
-  background: #d5f2df;
+  color: #08706c;
+  background: #c9f0e4;
 }
 
 #task-list li button {
