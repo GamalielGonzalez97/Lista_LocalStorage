@@ -34,6 +34,17 @@
         <p>Pendientes: <strong id="pending-count">0</strong></p>
         <p>Terminadas: <strong id="completed-count">0</strong></p>
       </div>
+      <div id="task-filters" aria-label="Filtrar tareas">
+        <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">
+          Todas
+        </button>
+        <button type="button" class="filter-button" data-filter="pending" aria-pressed="false">
+          Pendientes
+        </button>
+        <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">
+          Terminadas
+        </button>
+      </div>
       <ul id="task-list"></ul>
     </main>
 

@@ -6,6 +6,7 @@ const taskList = document.getElementById("task-list");
 const totalCount = document.getElementById("total-count");
 const pendingCount = document.getElementById("pending-count");
 const completedCount = document.getElementById("completed-count");
+const filterButtons = document.querySelectorAll(".filter-button");
 const storageKey = "mi-lista-tareas";
 const priorityLabels = {
   urgent: "Urgente",
@@ -14,6 +15,7 @@ const priorityLabels = {
 };
 
 let tasks = JSON.parse(localStorage.getItem(storageKey) || "[]");
+let currentFilter = "all";
 
 tasks.forEach(function (task) {
   if (!priorityLabels[task.priority]) {
@@ -33,6 +35,18 @@ function updatePendingCount() {
   totalCount.textContent = tasks.length;
   pendingCount.textContent = pendingTasks;
   completedCount.textContent = completedTasks;
+}
+
+function shouldShowTask(task) {
+  if (currentFilter === "pending") {
+    return !task.completed;
+  }
+
+  if (currentFilter === "completed") {
+    return task.completed;
+  }
+
+  return true;
 }
 
 function getTodayDate() {
@@ -98,10 +112,8 @@ function createTaskElement(task, taskIndex) {
 
   taskItem.addEventListener("click", function () {
     task.completed = !task.completed;
-    taskItem.classList.toggle("completed", task.completed);
-    taskItem.classList.toggle("overdue", isOverdue(task));
     saveTasks();
-    updatePendingCount();
+    renderTasks();
   });
 
   taskPrioritySelect.addEventListener("click", function (event) {
@@ -123,11 +135,27 @@ function renderTasks() {
   taskList.replaceChildren();
 
   tasks.forEach(function (task, taskIndex) {
-    taskList.appendChild(createTaskElement(task, taskIndex));
+    if (shouldShowTask(task)) {
+      taskList.appendChild(createTaskElement(task, taskIndex));
+    }
   });
 
   updatePendingCount();
 }
+
+filterButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    currentFilter = button.dataset.filter;
+
+    filterButtons.forEach(function (filterButton) {
+      const isActive = filterButton === button;
+      filterButton.classList.toggle("active", isActive);
+      filterButton.setAttribute("aria-pressed", String(isActive));
+    });
+
+    renderTasks();
+  });
+});
 
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault();

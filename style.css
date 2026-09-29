@@ -121,6 +121,28 @@ button:hover {
   color: var(--text);
 }
 
+#task-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+#task-filters .filter-button {
+  margin: 0;
+  padding: 9px 13px;
+  border: 1px solid var(--accent);
+  color: var(--accent-dark);
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+
+#task-filters .filter-button:hover,
+#task-filters .filter-button.active {
+  color: #ffffff;
+  background: var(--accent);
+}
+
 #task-list {
   display: grid;
   gap: 10px;
