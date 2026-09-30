@@ -23,7 +23,11 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 15%, rgba(255, 196, 92, 0.4), transparent 28%),
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(255, 196, 92, 0.4),
+      transparent 28%
+    ),
     linear-gradient(135deg, #fff0d8 0%, #fffaf2 48%, #d7f1ec 100%);
 }
 
