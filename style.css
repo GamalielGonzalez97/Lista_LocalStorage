@@ -1,5 +1,5 @@
 :root {
-  --background: #fff4e8;
+  --background: #f4f7f5;
   --surface: #fffdf9;
   --text: #29243a;
   --muted-text: #756b7d;
@@ -25,10 +25,10 @@ body {
   background:
     radial-gradient(
       circle at 12% 15%,
-      rgba(255, 196, 92, 0.4),
+      rgba(255, 255, 255, 0.75),
       transparent 28%
     ),
-    linear-gradient(135deg, #fff0d8 0%, #fffaf2 48%, #d7f1ec 100%);
+    linear-gradient(135deg, #e8f3f1 0%, var(--background) 48%, #e1edf0 100%);
 }
 
 main {
